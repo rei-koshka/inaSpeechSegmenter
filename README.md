@@ -43,8 +43,26 @@ $ sudo apt-get install ffmpeg
 # create a python 3 virtual environement and activate it
 $ virtualenv -p python3 env
 $ source env/bin/activate
-# install framework and dependencies
-$ pip install inaSpeechSegmenter
+```
+
+Then install package with preferred exras.
+
+#### CUDA support
+
+```bash
+$ pip install inaSpeechSegmenter[cuda]
+```
+
+#### Silicon support
+
+```bash
+$ pip install inaSpeechSegmenter[silicon]
+```
+
+#### CPU-only
+
+```bash
+$ pip install inaSpeechSegmenter[cpu]
 ```
 
 ### Installing from from sources
