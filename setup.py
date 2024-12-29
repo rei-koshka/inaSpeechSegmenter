@@ -25,9 +25,10 @@
 
 
 import os
-
-from setuptools import setup, find_packages
 import versioneer
+
+from typing import List
+from setuptools import setup, find_packages
 
 KEYWORDS = '''
 speech-segmentation
@@ -105,31 +106,19 @@ Details on the speech detection submodule can be found bellow:
 ```
 '''
 
-requirements = [
-  'numpy',
-  'pandas',
-  'scikit-image',
-  'pyannote.core',
-  'matplotlib',
-  'Pyro4',
-  'pytextgrid',
-  'soundfile',
-  #'torch',
-]
+def load_requirements(path: str) -> List[str]:
+    return open(path).read().split("\n")
+
+requirements = load_requirements("requirements.txt")
+
+requirements_cuda = load_requirements("requirements-cuda.txt")
+requirements_silicon = load_requirements("requirements-silicon.txt")
+requirements_cpu = load_requirements("requirements-cpu.txt")
 
 extras = {
-  'cuda': [
-    'tensorflow[and-cuda]',
-    'onnxruntime-gpu',
-  ],
-  'silicon': [
-    'tensorflow',
-    'onnxruntime-silicon',
-  ],
-  'cpu': [
-    'tensorflow',
-    'onnxruntime',
-  ],
+  'cuda': requirements_cuda,
+  'silicon': requirements_silicon,
+  'cpu': requirements_cpu,
 }
 
 setup(

@@ -1,0 +1,8 @@
+numpy==2.2.1
+pandas==2.2.3
+scikit-image==0.25.0
+pyannote.core==5.0.0
+matplotlib==3.10.0
+Pyro4==4.82
+pytextgrid==0.1.4
+soundfile==0.12.1
